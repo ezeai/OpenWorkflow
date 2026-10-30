@@ -133,4 +133,4 @@ Full list: [docs/FEATURES_AND_LIMITATIONS.md](docs/FEATURES_AND_LIMITATIONS.md).
 
 ## Demo video
 
-A short demo (about two minutes) walks through importing a workflow, running it, reading the receipt, and running a two-step pipeline. It also explains every tool and model used alongside ComfyUI. Link: *to be added before submission*.
+A short demo (about two minutes) walks through importing a workflow, running it, reading the receipt, and running a two-step pipeline. It also explains every tool and model used alongside ComfyUI. Watch it in the repository: [media/OpenWorkflow_Launch_Film.mp4](media/OpenWorkflow_Launch_Film.mp4) (90 seconds, 1080p). The film marks its time-lapse sections on screen.
