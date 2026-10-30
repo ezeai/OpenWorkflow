@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "_doc": "Workflow definitions. A workflow becomes 'validated' or 'smoke_tested' only from a recorded check in the registry, never from this file. workflow_file is null until a graph is exported and tested.",
+  "workflows": [
+    {
+      "id": "img-z-image-turbo",
+      "version": "0.1.0",
+      "name": "Z-Image Turbo: text to image",
+      "task": "text-to-image",
+      "models": [
+        {
+          "model_id": "z-image-turbo",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae"
+          ]
+        }
+      ],
+      "required_nodes": [
+        "UNETLoader",
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "VAELoader",
+        "EmptySD3LatentImage",
+        "KSampler",
+        "VAEDecode",
+        "SaveImage"
+      ],
+      "required_packs": [],
+      "inputs": [
+        "prompt",
+        "negative",
+        "width",
+        "height",
+        "seed",
+        "steps",
+        "cfg"
+      ],
+      "supported_params": [
+        "prompt",
+        "width",
+        "height",
+        "seed",
+        "steps",
+        "cfg"
+      ],
+      "unsupported_controls": [
+        "camera_move",
+        "identity_reference",
+        "lens",
+        "aperture"
+      ],
+      "license_requirements": "Publisher checkpoint apache-2.0. Auxiliary files unverified, so the workflow is not open-weight eligible yet.",
+      "workflow_file": null,
+      "limitations": [
+        "Graph not yet exported or executed.",
+        "Camera controls are not supported by this workflow."
+      ]
+    },
+    {
+      "id": "img-flux-2-klein-4b",
+      "version": "0.1.0",
+      "name": "FLUX.2 klein 4B: text to image",
+      "task": "text-to-image",
+      "models": [
+        {
+          "model_id": "flux-2-klein-4b",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae"
+          ]
+        }
+      ],
+      "required_nodes": [
+        "UNETLoader",
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "VAELoader",
+        "KSampler",
+        "VAEDecode",
+        "SaveImage"
+      ],
+      "required_packs": [],
+      "inputs": [
+        "prompt",
+        "width",
+        "height",
+        "seed",
+        "steps"
+      ],
+      "supported_params": [
+        "prompt",
+        "width",
+        "height",
+        "seed",
+        "steps"
+      ],
+      "unsupported_controls": [
+        "camera_move",
+        "identity_reference",
+        "lens",
+        "aperture"
+      ],
+      "license_requirements": "Publisher checkpoint apache-2.0 (4B only). Encoder and VAE unverified.",
+      "workflow_file": null,
+      "limitations": [
+        "Node graph for FLUX.2 klein is not verified against the installed ComfyUI.",
+        "Text encoder pairing inferred."
+      ]
+    },
+    {
+      "id": "img-qwen-image-2.1",
+      "version": "0.1.0",
+      "name": "Qwen-Image-2.1: text to image (GGUF)",
+      "task": "text-to-image",
+      "models": [
+        {
+          "model_id": "qwen-image-2.1",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae"
+          ]
+        }
+      ],
+      "required_nodes": [
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "VAELoader",
+        "KSampler",
+        "VAEDecode",
+        "SaveImage"
+      ],
+      "required_packs": [
+        "ComfyUI-GGUF"
+      ],
+      "inputs": [
+        "prompt",
+        "width",
+        "height",
+        "seed",
+        "steps"
+      ],
+      "supported_params": [
+        "prompt",
+        "width",
+        "height",
+        "seed",
+        "steps"
+      ],
+      "unsupported_controls": [
+        "camera_move",
+        "identity_reference"
+      ],
+      "license_requirements": "Blocked for the default path: license 'qwen-research' restricts commercial use per secondary sources.",
+      "workflow_file": null,
+      "limitations": [
+        "License restriction blocks default use."
+      ]
+    },
+    {
+      "id": "i2v-wan-2.1-14b-480p",
+      "version": "0.1.0",
+      "name": "Wan 2.1 image to video (480p, GGUF)",
+      "task": "image-to-video",
+      "models": [
+        {
+          "model_id": "wan-2.1-i2v-14b-480p",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae",
+            "clip_vision"
+          ]
+        }
+      ],
+      "required_nodes": [
+        "CLIPLoader",
+        "CLIPVisionLoader",
+        "CLIPTextEncode",
+        "CLIPVisionEncode",
+        "VAELoader",
+        "WanImageToVideo",
+        "KSampler",
+        "VAEDecode",
+        "SaveImage"
+      ],
+      "required_packs": [
+        "ComfyUI-GGUF"
+      ],
+      "inputs": [
+        "start_image",
+        "prompt",
+        "width",
+        "height",
+        "frames",
+        "seed",
+        "steps"
+      ],
+      "supported_params": [
+        "start_image",
+        "prompt",
+        "width",
+        "height",
+        "frames",
+        "seed",
+        "steps"
+      ],
+      "unsupported_controls": [
+        "camera_trajectory",
+        "end_frame",
+        "motion_control"
+      ],
+      "license_requirements": "Publisher checkpoint apache-2.0. The installed GGUF conversion and auxiliary files are unverified.",
+      "workflow_file": null,
+      "limitations": [
+        "Short clips only.",
+        "Camera movement is prompt text only, not a trajectory."
+      ]
+    },
+    {
+      "id": "i2v-ltx-2.5-single-stage",
+      "version": "0.1.0",
+      "name": "LTX-2.5 image to video (single stage, optional install)",
+      "task": "image-to-video",
+      "models": [
+        {
+          "model_id": "ltx-2.5-i2v",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae"
+          ]
+        }
+      ],
+      "required_nodes": [
+        "LTXVImgToVideo",
+        "CLIPLoader",
+        "VAELoader",
+        "UNETLoader"
+      ],
+      "required_packs": [],
+      "inputs": [
+        "start_image",
+        "prompt",
+        "width",
+        "height",
+        "frames",
+        "seed"
+      ],
+      "supported_params": [
+        "start_image",
+        "prompt",
+        "width",
+        "height",
+        "frames",
+        "seed"
+      ],
+      "unsupported_controls": [
+        "camera_trajectory",
+        "end_frame",
+        "motion_control",
+        "identity_reference"
+      ],
+      "license_requirements": "Community license with a revenue threshold. Not open-weight eligible. Show the license with every output.",
+      "workflow_file": null,
+      "limitations": [
+        "No generator is connected yet.",
+        "Single-stage graph, not the official two-stage template."
+      ]
+    },
+    {
+      "id": "i2v-wan-2.1-14b-480p-safetensors",
+      "version": "0.1.0",
+      "name": "Wan 2.1 image to video (480p, full precision, optional install)",
+      "task": "image-to-video",
+      "models": [
+        {
+          "model_id": "wan-2.1-i2v-14b-480p",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae",
+            "clip_vision"
+          ]
+        }
+      ],
+      "required_nodes": [
+        "CLIPVisionEncode",
+        "CLIPVisionLoader",
+        "WanImageToVideo",
+        "UNETLoader",
+        "CLIPLoader",
+        "VAELoader"
+      ],
+      "required_packs": [],
+      "inputs": [
+        "start_image",
+        "prompt",
+        "width",
+        "height",
+        "frames",
+        "seed"
+      ],
+      "supported_params": [
+        "start_image",
+        "prompt",
+        "width",
+        "height",
+        "frames",
+        "seed"
+      ],
+      "unsupported_controls": [
+        "camera_trajectory",
+        "end_frame",
+        "motion_control"
+      ],
+      "license_requirements": "Publisher checkpoint Apache-2.0 (verified on the model page). Shards and auxiliary files must be present.",
+      "workflow_file": null,
+      "limitations": [
+        "No generator is connected yet.",
+        "Full-precision weights are about 82 GB for the repository and need offloading on a 16 GB card."
+      ]
+    },
+    {
+      "id": "i2v-minimax-h3",
+      "version": "0.1.0",
+      "name": "MiniMax H3 first-last frame to video (optional install)",
+      "task": "image-to-video",
+      "models": [
+        {
+          "model_id": "minimax-h3",
+          "required_roles": [
+            "diffusion",
+            "text_encoder",
+            "vae"
+          ]
+        }
+      ],
+      "required_nodes": [],
+      "required_packs": [
+        "ComfyUI-MiniMaxH3Mod"
+      ],
+      "inputs": [
+        "start_image",
+        "end_image",
+        "prompt",
+        "seed"
+      ],
+      "supported_params": [
+        "start_image",
+        "end_image",
+        "prompt",
+        "seed"
+      ],
+      "unsupported_controls": [
+        "camera_trajectory",
+        "motion_control"
+      ],
+      "license_requirements": "Community license with territory exclusions. Not open-weight eligible. Display 'MiniMax H3' in the UI.",
+      "workflow_file": null,
+      "limitations": [
+        "No generator is connected yet.",
+        "Required node classes not verified against the installed pack.",
+        "Requires ComfyUI to load custom nodes."
+      ]
+    }
+  ]
+}

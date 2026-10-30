@@ -1,0 +1,28 @@
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+# the built interface is shipped so a clone runs without Node; only its build output is kept
+dist/
+!frontend/dist/
+!frontend/dist/**
+# logs, secrets and local settings never belong in the repo
+*.log
+.env
+.env.*
+*.key
+*.pem
+*token*.txt
+config.local.json
+# user data and models never belong in the repo
+/data/
+/projects/
+*.safetensors
+*.gguf
+*.ckpt
+*.pth
+
+# large REA captures (indexed in evidence/EVIDENCE_INDEX.txt)
+evidence/cinema-studio.inspect.json
+evidence/genjutsu.inspect.json

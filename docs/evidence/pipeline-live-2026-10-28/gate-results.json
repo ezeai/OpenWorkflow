@@ -1,0 +1,173 @@
+[
+ {
+  "run": 1,
+  "seed": 101,
+  "state": "completed",
+  "message": null,
+  "seconds": 64.2,
+  "stages": [
+   {
+    "id": "draft",
+    "state": "completed",
+    "message": null,
+    "size": [
+     512,
+     512
+    ],
+    "sha256": "761acefca0e489c20823fe790a3b58df732d231501afb64fde936a188fa17707",
+    "receipt": {
+     "pipeline_run_id": "ff02523836d445718a1a632b26f9312c",
+     "stage_index": 0,
+     "stage_id": "draft",
+     "module_version": 1,
+     "snapshot_sha256": "d061b75a1467decab6b24567d939e5ec984f5f8feb444edb8607e862a70c2b8a",
+     "values": {
+      "prompt": "A lighthouse on a cliff at sunset, cinematic",
+      "seed": 101,
+      "width": 512,
+      "height": 512
+     }
+    }
+   },
+   {
+    "id": "upscale",
+    "state": "completed",
+    "message": null,
+    "size": [
+     1024,
+     1024
+    ],
+    "sha256": "e6086fb3a15b677d40ace2ab25fefebc6d1b8c7525dc13d6b88faf1769c5becd",
+    "receipt": {
+     "pipeline_run_id": "ff02523836d445718a1a632b26f9312c",
+     "stage_index": 1,
+     "stage_id": "upscale",
+     "module_version": 1,
+     "snapshot_sha256": "a05774a78bd31f14cddc270d3f4ee13df13aa8d490819312bdcd7cea7874df4b",
+     "values": {
+      "image": "openfield_761acefca0e489c2.png"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "run": 2,
+  "seed": 202,
+  "state": "completed",
+  "message": null,
+  "seconds": 68.1,
+  "stages": [
+   {
+    "id": "draft",
+    "state": "completed",
+    "message": null,
+    "size": [
+     512,
+     512
+    ],
+    "sha256": "1ca87fefe3d1fa494c7896b3f593b1612538c630faec674c0283bc709a58fd7b",
+    "receipt": {
+     "pipeline_run_id": "fdb21fa16db045beb591c6d866de40b2",
+     "stage_index": 0,
+     "stage_id": "draft",
+     "module_version": 1,
+     "snapshot_sha256": "d061b75a1467decab6b24567d939e5ec984f5f8feb444edb8607e862a70c2b8a",
+     "values": {
+      "prompt": "A red fox in fresh snow, morning light",
+      "seed": 202,
+      "width": 512,
+      "height": 512
+     }
+    }
+   },
+   {
+    "id": "upscale",
+    "state": "completed",
+    "message": null,
+    "size": [
+     1024,
+     1024
+    ],
+    "sha256": "7e7c4a145595bd3159a45aa600ff14ea66c97d48af50b28d70007e04d709cf26",
+    "receipt": {
+     "pipeline_run_id": "fdb21fa16db045beb591c6d866de40b2",
+     "stage_index": 1,
+     "stage_id": "upscale",
+     "module_version": 1,
+     "snapshot_sha256": "a05774a78bd31f14cddc270d3f4ee13df13aa8d490819312bdcd7cea7874df4b",
+     "values": {
+      "image": "openfield_1ca87fefe3d1fa49.png"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "run": 3,
+  "seed": 303,
+  "state": "completed",
+  "message": null,
+  "seconds": 54.1,
+  "stages": [
+   {
+    "id": "draft",
+    "state": "completed",
+    "message": null,
+    "size": [
+     512,
+     512
+    ],
+    "sha256": "19e41cfde32eb92f2a5802f4a3d9323549054d8908bdd275219a3aa21fb82e69",
+    "receipt": {
+     "pipeline_run_id": "2b37c8db5cb24d3f9921e6d9bf3d519c",
+     "stage_index": 0,
+     "stage_id": "draft",
+     "module_version": 1,
+     "snapshot_sha256": "d061b75a1467decab6b24567d939e5ec984f5f8feb444edb8607e862a70c2b8a",
+     "values": {
+      "prompt": "A neon street market at night, rain",
+      "seed": 303,
+      "width": 512,
+      "height": 512
+     }
+    }
+   },
+   {
+    "id": "upscale",
+    "state": "completed",
+    "message": null,
+    "size": [
+     1024,
+     1024
+    ],
+    "sha256": "2451f7ca400592d682e8810f7ca0b5b03e53af67fc68f3f956f305d327fb8560",
+    "receipt": {
+     "pipeline_run_id": "2b37c8db5cb24d3f9921e6d9bf3d519c",
+     "stage_index": 1,
+     "stage_id": "upscale",
+     "module_version": 1,
+     "snapshot_sha256": "a05774a78bd31f14cddc270d3f4ee13df13aa8d490819312bdcd7cea7874df4b",
+     "values": {
+      "image": "openfield_19e41cfde32eb92f.png"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "run": "forced-failure",
+  "state": "failed",
+  "message": "stage 'draft' did not complete (cancelled)",
+  "stages": [
+   [
+    "draft",
+    "cancelled"
+   ],
+   [
+    "upscale",
+    "pending"
+   ]
+  ]
+ }
+]

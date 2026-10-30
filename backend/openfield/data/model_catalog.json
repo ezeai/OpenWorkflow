@@ -1,0 +1,530 @@
+{
+  "schema_version": 1,
+  "_doc": "Verified facts about candidate models. Filenames are EXACT matches (no fuzzy matching). license.status 'verified' means the publisher's model page states the identifier; see docs/MODEL_LICENSE_REVIEW.md. download is null everywhere: no verified file manifest has been recorded yet, so OPENFIELD offers no download for these models.",
+  "models": [
+    {
+      "id": "z-image-turbo",
+      "name": "Z-Image Turbo",
+      "family": "z-image",
+      "tasks": [
+        "text-to-image"
+      ],
+      "publisher": "Tongyi-MAI",
+      "source_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "license": {
+        "id": "apache-2.0",
+        "status": "verified",
+        "evidence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+        "verified_on": "2026-10-17",
+        "commercial_restriction": null,
+        "notes": "Publisher page YAML license apache-2.0. Auxiliary components are separate files with their own licenses, not verified here."
+      },
+      "open_weight_policy": "review",
+      "variants": [
+        {
+          "id": "bf16-publisher",
+          "name": "BF16 (as installed)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models",
+                "unet"
+              ],
+              "filenames": [
+                "z_image_turbo_bf16.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Presumed to be the publisher checkpoint. Not hash-compared with the publisher; identity needs user confirmation."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "qwen_3_4b.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary encoder. Source and license not verified."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "ae.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE. Source and license not verified."
+            }
+          ]
+        },
+        {
+          "id": "fp8-repackage",
+          "name": "FP8 scaled (third-party repackage)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models",
+                "unet"
+              ],
+              "filenames": [
+                "z-image-turbo_fp8_scaled_e4m3fn_KJ.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Third-party repackage. Inherits the publisher license only as stated by the repackager; not verified."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "qwen_3_4b.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary encoder. Source and license not verified."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "ae.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE. Source and license not verified."
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Identity of installed files is by filename only until the user confirms them.",
+        "No smoke test has been recorded on this machine."
+      ]
+    },
+    {
+      "id": "flux-2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "family": "flux-2",
+      "tasks": [
+        "text-to-image"
+      ],
+      "publisher": "Black Forest Labs",
+      "source_url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "license": {
+        "id": "apache-2.0",
+        "status": "verified",
+        "evidence_url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+        "verified_on": "2026-10-17",
+        "commercial_restriction": null,
+        "notes": "The 4B variant only. The 9B variant is a different license (see flux-2-klein-9b, not in catalog). Do not infer 9B from 4B."
+      },
+      "open_weight_policy": "review",
+      "variants": [
+        {
+          "id": "publisher-fp16",
+          "name": "4B checkpoint (as installed)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models",
+                "unet"
+              ],
+              "filenames": [
+                "flux-2-klein-4b.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Filename matches the 4B release name; not hash-compared with the publisher."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "qwen_3_4b.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Encoder choice for FLUX.2 klein 4B is inferred, not verified from the publisher."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "flux2-vae.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE. Source and license not verified."
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Text encoder pairing is inferred.",
+        "No smoke test has been recorded on this machine."
+      ]
+    },
+    {
+      "id": "qwen-image-2.1",
+      "name": "Qwen-Image-2.1",
+      "family": "qwen-image",
+      "tasks": [
+        "text-to-image",
+        "image-edit"
+      ],
+      "publisher": "Qwen (Alibaba)",
+      "source_url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+      "license": {
+        "id": "qwen-research",
+        "status": "restricted",
+        "evidence_url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+        "verified_on": "2026-10-17",
+        "commercial_restriction": "Secondary sources report non-commercial research use, with commercial use under a separate agreement. Not read from the LICENSE file.",
+        "notes": "Publisher page identifies 'qwen-research' and a LICENSE file. Restriction text not retrieved."
+      },
+      "open_weight_policy": "not_eligible",
+      "variants": [
+        {
+          "id": "gguf-q4km",
+          "name": "GGUF Q4_K_M (PE T2I)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models",
+                "unet"
+              ],
+              "filenames": [
+                "Qwen-Image-2.1-PE-T2I.Q4_K_M.gguf"
+              ],
+              "license_status": "unverified",
+              "license_note": "Third-party GGUF conversion."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary encoder."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "qwen_image_2.1_vae_bf16.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE."
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Excluded from starter and default workflows because of the license restriction."
+      ]
+    },
+    {
+      "id": "wan-2.1-i2v-14b-480p",
+      "name": "Wan 2.1 image-to-video 14B 480P",
+      "family": "wan-2.1",
+      "tasks": [
+        "image-to-video"
+      ],
+      "publisher": "Wan-AI (Alibaba)",
+      "source_url": "https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-480P",
+      "license": {
+        "id": "apache-2.0",
+        "status": "verified",
+        "evidence_url": "https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-480P",
+        "verified_on": "2026-10-17",
+        "commercial_restriction": null,
+        "notes": "Verified on the publisher checkpoint. The installed file is a GGUF conversion from a third party, whose license is not checked."
+      },
+      "open_weight_policy": "review",
+      "variants": [
+        {
+          "id": "gguf-q4_0",
+          "name": "GGUF Q4_0 (third-party conversion, as installed)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models",
+                "unet"
+              ],
+              "filenames": [
+                "wan2.1-i2v-14b-480p-Q4_0.gguf"
+              ],
+              "license_status": "unverified",
+              "license_note": "Third-party GGUF conversion of the publisher checkpoint. Conversion repo license not checked."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary encoder."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "wan_2.1_vae.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE."
+            },
+            {
+              "role": "clip_vision",
+              "folders": [
+                "clip_vision"
+              ],
+              "filenames": [
+                "clip_vision_h.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary image encoder."
+            }
+          ]
+        },
+        {
+          "id": "publisher-safetensors",
+          "name": "Publisher full-precision safetensors (7 shards)",
+          "publisher_files": true,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models"
+              ],
+              "filenames": [
+                "diffusion_pytorch_model-00001-of-00007.safetensors",
+                "diffusion_pytorch_model-00002-of-00007.safetensors",
+                "diffusion_pytorch_model-00003-of-00007.safetensors",
+                "diffusion_pytorch_model-00004-of-00007.safetensors",
+                "diffusion_pytorch_model-00005-of-00007.safetensors",
+                "diffusion_pytorch_model-00006-of-00007.safetensors",
+                "diffusion_pytorch_model-00007-of-00007.safetensors"
+              ],
+              "license_status": "verified",
+              "license_note": "Publisher files. Matches any of the seven shards; all shards must be present.",
+              "require_all": true
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders"
+              ],
+              "filenames": [
+                "models_t5_umt5-xxl-enc-bf16.pth"
+              ],
+              "license_status": "verified",
+              "license_note": "Publisher file. Pickle format."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "Wan2.1_VAE.pth"
+              ],
+              "license_status": "verified",
+              "license_note": "Publisher file. Pickle format."
+            },
+            {
+              "role": "clip_vision",
+              "folders": [
+                "clip_vision"
+              ],
+              "filenames": [
+                "models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth"
+              ],
+              "license_status": "verified",
+              "license_note": "Publisher file. Pickle format."
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Requires the ComfyUI-GGUF custom node pack.",
+        "Short clips only at 480p.",
+        "No smoke test has been recorded on this machine."
+      ],
+      "obtain_from": "https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-480P",
+      "approx_size_gb": 82.3,
+      "install_guide": "Optional install (nothing is downloaded by OPENFIELD). Large: about 82 GB for the full repository.\n1. Read the Apache-2.0 license on https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-480P\n2. Download the seven diffusion shards (diffusion_pytorch_model-0000N-of-00007.safetensors, about 66 GB)\n   into diffusion_models/Wan2.1/ and the three .pth files into text_encoders/, vae/ and clip_vision/\n   (models_t5_umt5-xxl-enc-bf16.pth, Wan2.1_VAE.pth, models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth).\n3. Scan folders in the Model Library. Full-precision weights need roughly 16 GB VRAM plus offloading. Untested here.\nNote: OPENFIELD matches all seven shards as one component. Confirm that every shard is present before trusting it."
+    },
+    {
+      "id": "ltx-2.5-i2v",
+      "name": "LTX-2.5 image to video (distilled, NVFP4)",
+      "family": "ltx-2.5",
+      "tasks": [
+        "image-to-video"
+      ],
+      "publisher": "Lightricks",
+      "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+      "license": {
+        "id": "ltx-2.x-community-license-agreement",
+        "status": "restricted",
+        "evidence_url": "https://huggingface.co/Lightricks/LTX-2.5",
+        "verified_on": "2026-10-17",
+        "commercial_restriction": "Companies over USD 10M annual revenue need a paid commercial agreement. Revenue is measured across the whole entity.",
+        "notes": "Community license, not an open-source license. Verified from the model page; the LICENSE-2_x file was not read in full."
+      },
+      "open_weight_policy": "not_eligible",
+      "variants": [
+        {
+          "id": "nvfp4-single-stage",
+          "name": "Distilled NVFP4, single stage (as installed by the user)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models",
+                "unet"
+              ],
+              "filenames": [
+                "LTX25-distilled-DiT-comfy-nvfp4.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Third-party packaging name; compare with the publisher file before trusting."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "gemma4-12b-ltx25-comfy-w4a8.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary encoder."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "ltx-2.5-video-vae-bf16.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE."
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Single-stage only: the two-stage upscaler and prompt enhancer are not included.",
+        "Audio is not generated by this graph.",
+        "No smoke test has been recorded for this variant."
+      ],
+      "obtain_from": "https://huggingface.co/Lightricks/LTX-2.5",
+      "approx_size_gb": null,
+      "install_guide": "Optional install (nothing is downloaded by OPENFIELD).\n1. Accept the LTX-2.x Community License on the model page: https://huggingface.co/Lightricks/LTX-2.5\n   Read it first. Companies over USD 10M annual revenue need a paid agreement. Your use may differ.\n2. Download these three files and place them inside your ComfyUI models folder:\n   - diffusion_models/ltx 2.5/LTX25-distilled-DiT-comfy-nvfp4.safetensors\n   - text_encoders/ltx 2.5/gemma4-12b-ltx25-comfy-w4a8.safetensors\n   - vae/ltx 2.5/ltx-2.5-video-vae-bf16.safetensors\n   (subfolder names are free; OPENFIELD matches by file name inside the folder type.)\n3. Open the Model Library and press Scan folders. Then confirm each file you trust.\nNot included: the two-stage upscaler and prompt-enhancer models in the official template."
+    },
+    {
+      "id": "minimax-h3",
+      "name": "MiniMax H3 (first-last frame to video, w4a8)",
+      "family": "minimax-h3",
+      "tasks": [
+        "image-to-video"
+      ],
+      "publisher": "MiniMax",
+      "source_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "status": "restricted",
+        "evidence_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+        "verified_on": "2026-10-17",
+        "commercial_restriction": "Territory excludes the US, EU, UK and South Korea. Revenue above USD 20M a year needs separate written authorization. The UI must display 'MiniMax H3'.",
+        "notes": "Community license. Stated terms come from secondary sources; the license text was not read directly."
+      },
+      "open_weight_policy": "not_eligible",
+      "variants": [
+        {
+          "id": "fl2va-w4a8",
+          "name": "First-last frame to video, W4A8 (as installed by the user)",
+          "publisher_files": false,
+          "components": [
+            {
+              "role": "diffusion",
+              "folders": [
+                "diffusion_models"
+              ],
+              "filenames": [
+                "minimax_h3_fl2va_pruned_w4a8_mixed.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Third-party pruned and quantized build."
+            },
+            {
+              "role": "text_encoder",
+              "folders": [
+                "text_encoders",
+                "clip"
+              ],
+              "filenames": [
+                "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary encoder."
+            },
+            {
+              "role": "vae",
+              "folders": [
+                "vae"
+              ],
+              "filenames": [
+                "minimax_h3_video_vae_fp16.safetensors"
+              ],
+              "license_status": "unverified",
+              "license_note": "Auxiliary VAE."
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Needs the ComfyUI-MiniMaxH3Mod custom-node pack.",
+        "Prompt-interpretation and 2K stages are hosted by MiniMax and are not included.",
+        "No smoke test recorded."
+      ],
+      "obtain_from": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "approx_size_gb": null,
+      "install_guide": "Optional install (nothing is downloaded by OPENFIELD).\n1. Read the MiniMax H3 Community License on https://huggingface.co/MiniMaxAI/MiniMax-H3 first.\n   Its territory excludes the US, EU, UK and South Korea. Revenue above USD 20M needs separate authorization.\n   It requires showing \"MiniMax H3\" in your UI. Check whether it applies to you before you use it.\n2. Place these files in your ComfyUI models folder:\n   - diffusion_models/minimax h3/minimax_h3_fl2va_pruned_w4a8_mixed.safetensors\n   - text_encoders/minimax h3/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n   - vae/minimax_h3_video_vae_fp16.safetensors\n3. The workflow also needs the ComfyUI-MiniMaxH3Mod custom-node pack. ComfyUI must be able to load custom nodes.\n4. Scan folders in the Model Library, then confirm the files.\nNot included: the hosted prompt-interpretation and 2K upscaling stages, which are API-only."
+    }
+  ]
+}
