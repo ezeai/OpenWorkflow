@@ -391,9 +391,11 @@ export interface JobView {
   started_at: string | null;
   finished_at: string | null;
   updated_at: string;
-  models: { role: string; name: string; identity_confirmed: boolean; license_status: string }[];
+  models: { role: string; name?: string; file?: string; status?: string; identity_confirmed?: boolean; license_status?: string }[];
   error: string | null;
   output_asset_id: string | null;
+  kind?: string;
+  output_file?: { name: string; sha256: string; bytes: number; media: string } | null;
   progress: JobProgress;
   notes: string[];
   history: { state: JobState; at: string; note: string }[];

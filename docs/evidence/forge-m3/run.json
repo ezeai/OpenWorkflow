@@ -1,0 +1,63 @@
+{
+  "workflow_id": "1ccfca9774cf47e3af7f43cccc6f6452",
+  "workflow_sha256": "307904f13211cfa5405b308e748ef8035c68991b5bb4cfd4733daed9bc511b77",
+  "workflow_name": "image_z_image_turbo",
+  "spec_revision": 2,
+  "values": {
+    "57:27.text": "Latina female with thick wavy hair, harbor boats and pastel houses behind. Breezy seaside light, warm tones, cinematic close-up. ",
+    "57:13.width": 512,
+    "57:13.height": 512,
+    "57:3.seed": 0,
+    "57:30.type": "lumina2",
+    "57:30.device": "default",
+    "57:28.weight_dtype": "default",
+    "57:13.batch_size": 1,
+    "57:11.shift": 3,
+    "57:3.steps": 8,
+    "57:3.cfg": 1,
+    "57:3.sampler_name": "res_multistep",
+    "57:3.scheduler": "simple",
+    "57:3.denoise": 1
+  },
+  "source_format": "ui",
+  "node_definitions": {
+    "source": "live",
+    "captured_at": "2026-10-22T12:43:53+00:00",
+    "comfyui_version": "0.41.2",
+    "node_classes": 987,
+    "note": ""
+  },
+  "job_id": "83375099b5c84ee5b47fd07933cee377",
+  "comfy_prompt_id": "44309d0f-cd1c-447a-acde-a63ec3bbfb82",
+  "comfy_url": "http://127.0.0.1:8188",
+  "comfy_filename": "z-image-turbo_00002_.png",
+  "output_sha256": "b35c36603c1da6066163bede5215c6ac34b0106bef50f73df7a59fd9a8a5058f",
+  "models": [
+    {
+      "role": "clip_name",
+      "node": "57:30",
+      "file": "qwen_3_4b.safetensors",
+      "comfy_name": "qwe3 vl gguf\\qwen_3_4b.safetensors",
+      "status": "found_elsewhere"
+    },
+    {
+      "role": "vae_name",
+      "node": "57:29",
+      "file": "ae.safetensors",
+      "comfy_name": "ae.safetensors",
+      "status": "available"
+    },
+    {
+      "role": "unet_name",
+      "node": "57:28",
+      "file": "z_image_turbo_bf16.safetensors",
+      "comfy_name": "z-Image-Turbo\\z_image_turbo_bf16.safetensors",
+      "status": "found_elsewhere"
+    }
+  ],
+  "app_version": "0.1.0",
+  "completed_at": "2026-10-22T12:52:56+00:00",
+  "limitations": [
+    "Seeds do not guarantee identical output across software or hardware versions."
+  ]
+}

@@ -8,7 +8,6 @@ import { Director } from "./Director";
 import { Jobs } from "./Jobs";
 import { Canvas } from "./Canvas";
 import { Apps } from "./Apps";
-import { Posters } from "./Posters";
 import { Influencer } from "./Influencer";
 import { Home } from "./pages/Home";
 import { CreateApp } from "./pages/CreateApp";
@@ -30,7 +29,6 @@ const NAV: { id: View; label: string; icon: IconName }[] = [
   { id: "director", label: "Director", icon: "director" },
   { id: "canvas", label: "Canvas", icon: "canvas" },
   { id: "influencer", label: "AI Influencer", icon: "character" },
-  { id: "posters", label: "Posters", icon: "poster" },
   { id: "models", label: "Model Library", icon: "library" },
   { id: "jobs", label: "Run History", icon: "history" },
   { id: "settings", label: "Settings", icon: "settings" },
@@ -39,7 +37,6 @@ const NAV: { id: View; label: string; icon: IconName }[] = [
 const FULL_GROUPS: { title: string; ids: View[] }[] = [
   { title: "Workspace", ids: ["home", "apps", "create"] },
   { title: "Production", ids: ["pipelines", "projects", "director", "canvas", "characters", "worlds"] },
-  { title: "Studio apps", ids: ["influencer", "posters"] },
   { title: "Library", ids: ["models", "jobs"] },
   { title: "System", ids: ["settings"] },
 ];
@@ -49,7 +46,6 @@ const SUBMISSION_GROUPS: { title: string; ids: View[] }[] = [
   { title: "Workspace", ids: ["home", "apps", "create"] },
   { title: "Production", ids: ["pipelines"] },
   { title: "Library", ids: ["jobs", "models"] },
-  { title: "Experimental", ids: ["influencer"] },
   { title: "System", ids: ["settings"] },
 ];
 
@@ -270,7 +266,6 @@ export function App() {
         )}
         {view === "jobs" && <Jobs />}
         {view === "apps" && <Apps openId={openApp?.id ?? null} openTab={openApp?.tab} onOpened={() => setOpenApp(null)} onOpenChange={setCurrentAppId} onDetails={openDetails} tabs={tabs} onTabsChanged={setTabs} />}
-        {view === "posters" && <Posters />}
         {view === "canvas" && (activeProject ? <Canvas key={activeProject} projectId={activeProject} /> : <NeedsProject what="Canvas pipelines" onGo={() => go("projects")} />)}
         {view === "director" && (activeProject ? <Director key={activeProject} projectId={activeProject} /> : <NeedsProject what="Shots" onGo={() => go("projects")} />)}
       </main>

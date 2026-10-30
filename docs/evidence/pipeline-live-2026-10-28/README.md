@@ -7,7 +7,7 @@ Setup: ComfyUI 0.43.0 on 127.0.0.1:8188, RTX 3080 Laptop 16 GB.
 | Stage | Module | Models (installed) |
 |---|---|---|
 | `draft` | Z-Image Turbo text-to-image, 512 × 512, seed 42 (fixture `backend/tests/fixtures/forge/image_z_image_turbo.json`) | z_image_turbo_bf16, qwen_3_4b, ae |
-| `upscale` | Hand-written API graph: LoadImage → 4x-UltraSharp → ImageScaleBy 0.5 → SaveImage (net 2×) | 4x-UltraSharp.pth |
+| `upscale` | Hand-written API graph: LoadImage → 4xNomos8kDAT → ImageScaleBy 0.5 → SaveImage (net 2×) | 4xNomos8kDAT.pth (CC-BY-4.0) |
 
 ## Results (three runs)
 

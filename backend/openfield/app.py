@@ -19,7 +19,6 @@ from .api_continuity import build_router as build_continuity_router
 from .api_export import build_router as build_export_router
 from .api_forge import build_router as build_forge_router
 from .api_forge import on_app_terminal as forge_on_app_terminal
-from .api_moss import router as moss_router
 from .generation.builders import build_graph
 from .generation.jobs import JobEngine, JobStore
 from .generation.prompt import compose
@@ -77,7 +76,6 @@ def create_app(home: Path | None = None) -> FastAPI:
     app.include_router(build_continuity_router())
     app.include_router(build_export_router())
     app.include_router(build_forge_router())
-    app.include_router(moss_router)
     jobs = JobEngine(
         store=JobStore(store.home),
         projects_fn=app.state.services.projects,

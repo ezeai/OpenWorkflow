@@ -1,0 +1,61 @@
+{
+ "prompt_id": "87498e7a-12c6-48c3-8ba5-635bf9d921d1",
+ "status": "success",
+ "output": {
+  "filename": "openfield-forge-m1_00001_.png",
+  "subfolder": "",
+  "type": "output",
+  "metadata": {
+   "kind": "image",
+   "width": 512,
+   "height": 512
+  }
+ },
+ "bytes": 402943,
+ "analysis_readiness": "needs_attention",
+ "analysis_reasons": [
+  "some model files are installed under a different folder; Forge will use the installed name"
+ ],
+ "model_files": [
+  {
+   "id": "57:30.clip_name",
+   "node": "57:30",
+   "input": "clip_name",
+   "class_type": "CLIPLoader",
+   "file": "qwen_3_4b.safetensors",
+   "status": "found_elsewhere",
+   "comfy_name": "qwe3 vl gguf\\qwen_3_4b.safetensors",
+   "alternatives": [],
+   "checked_against": "live"
+  },
+  {
+   "id": "57:29.vae_name",
+   "node": "57:29",
+   "input": "vae_name",
+   "class_type": "VAELoader",
+   "file": "ae.safetensors",
+   "status": "available",
+   "comfy_name": "ae.safetensors",
+   "alternatives": [],
+   "checked_against": "live"
+  },
+  {
+   "id": "57:28.unet_name",
+   "node": "57:28",
+   "input": "unet_name",
+   "class_type": "UNETLoader",
+   "file": "z_image_turbo_bf16.safetensors",
+   "status": "found_elsewhere",
+   "comfy_name": "z-Image-Turbo\\z_image_turbo_bf16.safetensors",
+   "alternatives": [],
+   "checked_against": "live"
+  }
+ ],
+ "definitions": {
+  "source": "live",
+  "captured_at": "2026-10-22T11:19:47+00:00",
+  "comfyui_version": "0.41.2",
+  "node_classes": 987,
+  "note": ""
+ }
+}

@@ -84,6 +84,12 @@ export function Jobs() {
                 ) : active ? <div className="indeterminate" aria-label="Working" role="progressbar" /> : null}
                 {j.error && <div className="banner bad small" role="alert">{j.error}</div>}
                 {j.output_asset_id && <div className="small">Output saved as a project asset.</div>}
+                {j.kind === "app" && j.output_file && (
+                  <figure className="job-output">
+                    <img src={`/api/forge/runs/${j.id}/output`} alt={`Output of run ${j.id.slice(0, 8)}`} loading="lazy" />
+                    <figcaption className="small"><a href={`/api/forge/runs/${j.id}/receipt`}>Receipt</a></figcaption>
+                  </figure>
+                )}
                 <div className="actions" style={{ marginTop: 6 }}>
                   {(j.state === "QUEUED" || j.state === "RUNNING" || j.state === "VALIDATING") && (
                     <button className="secondary" onClick={() => act(() => jobsApi.cancel(j.id))}>Cancel</button>
@@ -96,7 +102,7 @@ export function Jobs() {
                 </div>
                 {open === j.id && (
                   <div className="small job-detail">
-                    <div>Models: {j.models.map((m) => `${m.role}: ${m.name}${m.identity_confirmed ? "" : " (identity not confirmed)"}`).join("; ") || "none recorded"}</div>
+                    <div>Models: {j.models.map((m) => `${m.role}: ${m.file ?? m.name} (${m.status ?? (m.identity_confirmed ? "identity confirmed" : "identity not confirmed")})`).join("; ") || "none recorded"}</div>
                     {j.prompt && <div>Prompt: <code>{j.prompt.positive}</code></div>}
                     <ul>{j.history.map((h, i) => <li key={i}>{h.state}: {h.note} <span className="muted">({new Date(h.at).toLocaleTimeString()})</span></li>)}</ul>
                     {j.notes.map((n, i) => <div key={i} className="muted">{n}</div>)}
